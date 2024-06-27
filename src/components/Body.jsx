@@ -38,7 +38,7 @@ const Body = () => {
         <div className="search-div">
         <input type="text" className="search-box" value={searchval} onChange={(e) => setSearchval(e.target.value)} />
         <button className="search-btn" onClick={()=>{
-          console.log(searchval)
+          // console.log(searchval)
           const searchedrestaur = resArray.filter((i) => i.info.name.toLowerCase().includes(searchval.toLowerCase()));
           setFilteredRes(searchedrestaur);
         }}>Search</button>  
