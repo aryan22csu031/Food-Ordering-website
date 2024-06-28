@@ -6,8 +6,7 @@ function About() {
   return (
     <div>
       <h1>About Me</h1>
-      {/* <User/> */}
-      <UserClass name={"Aryannn"} />
+      <UserClass name={"Aryann"} />
     </div>
   )
 }
