@@ -48,15 +48,15 @@ const Body = () => {
     return (
       <div className="body">
         <div className="filter">
-          <div className="search-div">
+          <div className="search-div flex items-center mt-[4rem] mb-[2rem]">
             <input
               type="text"
-              className="search-box"
+              className="search-box border border-solid border-black rounded h-[2rem] w-[15rem] ml-[2rem]"
               value={searchval}
               onChange={(e) => setSearchval(e.target.value)}
             />
             <button
-              className="search-btn"
+              className="search-btn ml-2 p-1.5 w-[5rem] bg-green-400 rounded-lg hover:bg-green-500"
               onClick={() => {
                 const searchedrestaur = resArray.filter((i) =>
                   i.info.name.toLowerCase().includes(searchval.toLowerCase())
@@ -66,10 +66,8 @@ const Body = () => {
             >
               Search
             </button>
-          </div>
-
-          <button
-            className="filter-btn"
+            <button
+            className="filter-btn border bg-green-400 rounded-sm ml-[74rem] w-[7rem]"
             onClick={() => {
               const FilteredresArray = resArray.filter(
                 (res) => res.info.avgRating >= 4
@@ -79,8 +77,11 @@ const Body = () => {
           >
             Top Rated
           </button>
+          </div>
+
+          
         </div>
-        <div className="res-container">
+        <div className="res-container flex flex-wrap justify-around">
           {filteredRes.map((i) => (
             <Link to={"/restaurants/" + i.info.id} key={i.info.id}>
               <ResCard resData={i} />
