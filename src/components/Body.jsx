@@ -67,7 +67,7 @@ const Body = () => {
               Search
             </button>
             <button
-            className="filter-btn border bg-green-400 rounded-sm ml-[74rem] w-[7rem]"
+            className="filter-btn border bg-green-400 rounded-lg ml-[74rem] w-[7rem] p-1.5"
             onClick={() => {
               const FilteredresArray = resArray.filter(
                 (res) => res.info.avgRating >= 4
