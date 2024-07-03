@@ -1,4 +1,4 @@
-import ResCard from "./ResCard";
+import ResCard, {withPromotedLabel} from "./ResCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -8,6 +8,7 @@ const Body = () => {
   const [resArray, setResArray] = useState([]);
   const [filteredRes, setFilteredRes] = useState([]);
   const [searchval, setSearchval] = useState("");
+  const ResCardPrmoted = withPromotedLabel(ResCard);
 
   useEffect(() => {
     fetchData();
@@ -23,7 +24,7 @@ const Body = () => {
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
       ?.restaurants || json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
       ?.restaurants;
-      console.log(json);
+      console.log(restaurants);
       setResArray(restaurants);
       setFilteredRes(restaurants);
     } catch (error) {
@@ -81,10 +82,10 @@ const Body = () => {
 
           
         </div>
-        <div className="res-container flex flex-wrap justify-around">
+        <div className="res-container flex flex-wrap justify-evenly items-center">
           {filteredRes.map((i) => (
             <Link to={"/restaurants/" + i.info.id} key={i.info.id}>
-              <ResCard resData={i} />
+              {i.info.sla.deliveryTime > 35 ? (<ResCardPrmoted resData = {i} />) : (<ResCard resData = {i} />)}
             </Link>
           ))}
         </div>

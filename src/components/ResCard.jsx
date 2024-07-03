@@ -7,9 +7,9 @@ const ResCard = (props) => {
     const { deliveryTime } = resData.info.sla;
   
     return (
-      <div className="res-card p-3 m-2 bg-slate-200 w-fit h-[40rem] flex flex-col justify-around items-center rounded-2xl">
+      <div className="res-card p-3 m-2 bg-slate-200 w-fit min-h-[38rem] max-h-[38rem] flex flex-col justify-evenly items-center rounded-2xl">
         <img
-          className="res-logo w-[20rem] mb-[1rem]"
+          className="res-logo w-[20rem] mb-[1rem] min-h-[10rem]"
           src={
             CDN_URL +
             cloudinaryImageId
@@ -23,5 +23,20 @@ const ResCard = (props) => {
       </div>
     );
   };
+
+  //higher order component
+  // takes a resCard and return a promoted resCard
+
+  export const withPromotedLabel = (ResCard) => {
+
+    return (props) => {
+      return (
+        <div>
+          <label className="relative bg-black text-white font-semibold m-2 top-9 p-2 rounded-s-lg rounded-t-lg">Promoted</label>
+          <ResCard {...props} />
+        </div>
+      )
+    }
+  }
 
   export default ResCard;
