@@ -5,7 +5,6 @@ const ResCard = (props) => {
     const { cloudinaryImageId, name, cuisines, avgRating, costForTwo } =
       resData.info;
     const { deliveryTime } = resData.info.sla;
-  
     return (
       <div className="res-card p-3 m-2 bg-slate-200 w-fit min-h-[38rem] max-h-[38rem] flex flex-col justify-evenly items-center rounded-2xl">
         <img

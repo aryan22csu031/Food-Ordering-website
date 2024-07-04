@@ -1,12 +1,14 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { Link } from "react-router-dom";
 import logo from '../images/logo.png';
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/userContext";
 
 const Header = () => {
   // let btnName = 'Login';
   const [btnName, setBtnName] = useState('Login');
   const onlineStatus = useOnlineStatus();
+  const data = useContext(UserContext);
     return (
       <div className="flex justify-between w-full shadow-lg">
         <div className="w-[12rem]">
@@ -38,6 +40,9 @@ const Header = () => {
               <img src="https://img.icons8.com/?size=100&id=59997&format=png&color=000000" className="w-[1.4rem]" />
             </li>
             <button className="log-btn " onClick={() => btnName =='Login' ? setBtnName('Logout') : setBtnName('Login')}>{btnName}</button>
+            <li className="font-bold">
+              {data.loggedInUser}
+            </li>
           </ul>
         </div>
       </div>

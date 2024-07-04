@@ -23,26 +23,22 @@ const ResMenu = () => {
     //         console.error("Error fetching menu:", error);
     //     }
     // };
-
+    const [showIndex, setShowIndex] = useState(null);
+    
+    
     if(resInfo === null) return <Shimmer/> ;
-
     // const info = resInfo?.cards[2]?.card?.card?.info || {};
-    const {itemCards} = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+    // const {itemCards} = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
     // const sections = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-    console.log(itemCards)
-    console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
-    // console.log(sections.filter((i,index)=> index<15).filter())
-    // console.log(sections)
-    const { name, cuisines, costForTwoMessage} = resInfo?.cards[2]?.card?.card?.info;
+    const { name } = resInfo?.cards[2]?.card?.card?.info;
     const categories = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(c => c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory" );
-    console.log(categories);
-
+    
     return (
         <div className='menu m-4 text-center'>
             <h1 className='text-6xl text-center mb-6 font-lobster'>{name}</h1>
             <h1 className='text-[4rem] text-purple-800 text-center font-bold mt-[5rem] mb-4'>Our Menu</h1>
             {
-                categories.map((i)=>(<RestaurantCategory key={i.card.card.title} data = {i.card?.card}/>))
+                categories.map((i, index)=>(<RestaurantCategory key={i.card.card.title} showItems = {index===showIndex?true:false} setShowIndex = {()=> setShowIndex(index)} data = {i.card?.card}/>))
             }
             {/* {sections
                     .filter((_, index) => index > 0 && index < 15)
