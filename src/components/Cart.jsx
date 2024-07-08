@@ -22,7 +22,7 @@ const Cart = () => {
         </button>
       </div>
       <div className="my-20 p-2 bg-gray-200">
-        {cartItems.length===0 && <h1 className="text-3xl font-semibold text-center">Looks Empty !!!</h1>}
+        {cartItems.length===0 && <h1 className="text-3xl font-semibold text-center">Looks Empty, go add some items now !!!</h1>}
         <ItemList items={cartItems} />
       </div>
     </div>
