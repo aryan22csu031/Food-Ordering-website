@@ -4,9 +4,7 @@
   "description": "food ordering app using react",
   "scripts": {
     "start": "npx parcel index.html",
-    "build": "npx parcel build index.html --dist-dir build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "build": "npx parcel build index.html --dist-dir build"
   },
   "keywords": [
     "food",
@@ -15,7 +13,6 @@
     "online",
     "food"
   ],
-  "homepage": "https://aryan22csu031.github.io/Food-Ordering-website",
   "author": "Aryan Arora",
   "license": "ISC",
   "dependencies": {
