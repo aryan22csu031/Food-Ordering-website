@@ -2,10 +2,11 @@
   "name": "EatEasy",
   "version": "1.0.0",
   "description": "food ordering app using react",
-  "main": "App.js",
   "scripts": {
     "start": "npx parcel index.html",
-    "build": "npx parcel build index.html"
+    "build": "npx parcel build index.html",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [
     "food",
@@ -14,10 +15,12 @@
     "online",
     "food"
   ],
+  "homepage": "https://aryan22csu031.github.io/Food-Ordering-website",
   "author": "Aryan Arora",
   "license": "ISC",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.6",
+    "gh-pages": "^6.1.1",
     "parcel": "^2.12.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
