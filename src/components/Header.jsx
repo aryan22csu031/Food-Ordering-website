@@ -39,10 +39,12 @@ const Header = () => {
               <Link to='/contact'>Contact Us</Link>
             </li>
             <li>
-              <Link to='/cart'>
+            <div className="flex">
+              <Link to='/cart'> 
               <img src="https://img.icons8.com/?size=100&id=59997&format=png&color=000000" className="w-[1.4rem]" />
-              {/* <h5 className="font-mono">({cartItems.length})</h5> */}
               </Link>
+              <h5 className="font-mono">({cartItems.length})</h5>
+              </div>
             </li>
             <button className="log-btn " onClick={() => btnName =='Login' ? setBtnName('Logout') : setBtnName('Login')}>{btnName}</button>
             <li className="font-bold">
