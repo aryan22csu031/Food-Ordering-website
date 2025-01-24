@@ -9,8 +9,9 @@ const Header = () => {
   // let btnName = 'Login';
   const [btnName, setBtnName] = useState('Login');
   const onlineStatus = useOnlineStatus();
-  const data = useContext(UserContext);
   const cartItems = useSelector((store)=> store.cart.items);
+  // console.log(data);
+  
     return (
       <div className="flex justify-between w-full shadow-lg">
         <div className="w-[12rem]">
@@ -47,9 +48,6 @@ const Header = () => {
               </div>
             </li>
             <button className="log-btn " onClick={() => btnName =='Login' ? setBtnName('Logout') : setBtnName('Login')}>{btnName}</button>
-            <li className="font-bold">
-              {data.loggedInUser}
-            </li>
           </ul>
         </div>
       </div>
